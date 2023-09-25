@@ -1,13 +1,11 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CollapsibleNavbar from "./Components/Navbar.js";
-import Footer from "./Components/Footer.js";
+import GlobalLayout from "./Components/Layouts/NavbarFooter.js";
 
 function App() {
 	return (
 		<div className="App">
-			<CollapsibleNavbar />
-			<Footer />
+			<GlobalLayout />
 		</div>
 	);
 }
