@@ -11,14 +11,15 @@ function CollapsibleNavbar() {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link href="#features">Home</Nav.Link>
-						<Nav.Link href="#pricing">Contact</Nav.Link>
+						<Nav.Link href="/">Home</Nav.Link>
+						<Nav.Link href="/About">About</Nav.Link>
+						<Nav.Link href="/ContactUs">Contact</Nav.Link>
 						<NavDropdown title="Products" id="collapsible-nav-dropdown">
-							<NavDropdown.Item href="#action/3.1">Product type 1</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.2">Product type 2</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.3">Product type 3</NavDropdown.Item>
+							<NavDropdown.Item href="/Product1">Product type 1</NavDropdown.Item>
+							<NavDropdown.Item href="/Product2">Product type 2</NavDropdown.Item>
+							<NavDropdown.Item href="/Product3">Product type 3</NavDropdown.Item>
 							<NavDropdown.Divider />
-							<NavDropdown.Item href="#action/3.4">All products</NavDropdown.Item>
+							<NavDropdown.Item href="/All">All products</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
 					<Nav>
