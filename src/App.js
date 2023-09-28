@@ -6,8 +6,12 @@ import React, { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
+import AboutLayout from "./Components/Layouts/AboutPage.js";
+import ContactLayout from "./Components/Layouts/ContactPage.js";
+import ProductLayout from "./Components/Layouts/ProductPage.js";
+import CheckoutLayout from "./Components/Layouts/CheckoutPage.js";
+import CheckoutSuccessLayout from "./Components/Layouts/CheckoutSuccessPage.js";
 import Card from "react-bootstrap/Card";
-import Image from "react-bootstrap/Image";
 
 function Home() {
 	const url = "https://api.noroff.dev/api/v1/online-shop";
@@ -80,39 +84,23 @@ function Home() {
 }
 
 function About() {
-	return (
-		<div className="pt-3 w-75 m-auto pb-5">
-			<h1>About eCom</h1>
-			<Image src="showing-cart-trolley-shopping-online-sign-graphic.jpg" alt="eCom about picture" Style="max-width: 300px; width: 100%" thumbnail />
-			<Card border="info" style={{ width: "100%", margin: "40px 0" }}>
-				<Card.Header>Established in 2023</Card.Header>
-				<Card.Body>
-					<Card.Title>Who are we?</Card.Title>
-					<div className="text-start">
-						<Card.Text>
-							Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title
-							and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some
-							quick example text to build on the card title and make up the bulk of the card's content.
-							<br />
-							<br />
-							Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title
-							and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some
-							quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and
-							make up the bulk of the card's content.
-						</Card.Text>
-					</div>
-				</Card.Body>
-			</Card>
-		</div>
-	);
+	return AboutLayout;
 }
 
 function ContactUs() {
-	return <div>Contact us</div>;
+	return ContactLayout();
 }
 
-function Products() {
-	return <div>Products</div>;
+function ProductPage() {
+	return ProductLayout();
+}
+
+function CheckoutPage() {
+	return CheckoutLayout();
+}
+
+function CheckoutSuccessPage() {
+	return CheckoutSuccessLayout();
 }
 
 function Product() {
@@ -138,7 +126,7 @@ function App() {
 					<Route index element={<Home />} />
 					<Route path="About" element={<About />} />
 					<Route path="ContactUs" element={<ContactUs />} />
-					<Route path="Products" element={<Products />} />
+					<Route path="Products" element={<ProductPage />} />
 					<Route path="product/:id" element={<Product />} />
 					<Route path="*" element={<RouteNotFound />} />
 				</Routes>
