@@ -3,23 +3,27 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import GlobalLayout from "./Components/Layouts/GlobalLayout.js";
 import { Routes, Route, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Spinner from "react-bootstrap/Spinner";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import AboutLayout from "./Components/Layouts/AboutPage.js";
 import ContactLayout from "./Components/Layouts/ContactPage.js";
 import ProductLayout from "./Components/Layouts/ProductPage.js";
 import CheckoutLayout from "./Components/Layouts/CheckoutPage.js";
 import CheckoutSuccessLayout from "./Components/Layouts/CheckoutSuccessPage.js";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
+import Spinner from "react-bootstrap/Spinner";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import { FaSearch } from "react-icons/fa";
 
 function Home() {
 	const url = "https://api.noroff.dev/api/v1/online-shop";
 
-	// State for holding Loaded, Loading, Error state.
-	const [posts, setPosts] = useState([]);
+	// State for holding Loaded products, search products, loading, error state.
+	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
+	const [search, setSearch] = useState("");
 
 	useEffect(() => {
 		// Function that gets our products
@@ -31,7 +35,7 @@ function Home() {
 				setIsLoading(true);
 				const response = await fetch(url);
 				const json = await response.json();
-				setPosts(json);
+				setData(json);
 				// Clear the loading state once we've successfully got our data
 				setIsLoading(false);
 			} catch (error) {
@@ -61,23 +65,39 @@ function Home() {
 			</Alert>
 		);
 	}
-
 	return (
 		<div>
-			<div className="pt-3 ">
+			<div className="pt-3 pb-3">
 				<h1>Welcome to eCom</h1>
 			</div>
-			<div className="d-flex flex-wrap justify-content-center gap-3 m-5 p-5">
-				{posts.map((post) => (
-					<Card style={{ width: "18rem" }}>
-						<Card.Img variant="top" src={post.imageUrl} />
-						<Card.Body>
-							<Card.Title>{post.title}</Card.Title>
-							<Card.Text>{post.description}</Card.Text>
-							<Button variant="primary">View product</Button>
-						</Card.Body>
-					</Card>
-				))}
+			<div className="search-bar-container">
+				<Form className="input-wrapper d-flex flex-column p-0">
+					<InputGroup className="input-wrapper w-100 align-items-center">
+						<FaSearch id="search-icon" />
+						<Form.Control onChange={(e) => setSearch(e.target.value)} placeholder="Search contacts" className="border-0" id="moreInputStyle" />
+					</InputGroup>
+				</Form>
+				<Alert variant="info position-absolute searchAlert">
+					<Alert.Heading>No Products found...</Alert.Heading>
+				</Alert>
+				<div className="d-flex flex-wrap justify-content-center gap-3 p-5 mt-4 mb-5 w-100" id="Results">
+					{data
+						.filter((item) => {
+							return search.toLowerCase() === "" ? item : item.title.toLowerCase().includes(search);
+						})
+						.map((item, index) => (
+							<Card style={{ width: "18rem", boxShadow: "5px 5px 5px rgba(155, 155, 155, 0.50)", border: "none" }} key={index}>
+								<Card.Img variant="top" src={item.imageUrl} />
+								<Card.Body>
+									<Card.Title key={index}>{item.title}</Card.Title>
+									<Card.Text>{item.description}</Card.Text>
+									<Button variant="info" href={item.id}>
+										View product
+									</Button>
+								</Card.Body>
+							</Card>
+						))}
+				</div>
 			</div>
 		</div>
 	);
@@ -95,7 +115,7 @@ function ProductPage() {
 	return ProductLayout();
 }
 
-function CheckoutPage() {
+function Checkout() {
 	return CheckoutLayout();
 }
 
@@ -105,8 +125,53 @@ function CheckoutSuccessPage() {
 
 function Product() {
 	let params = useParams();
-	console.log(params);
-	return <div>Individual product page: {params.id}</div>;
+	//return <div>Individual Post ID: {params.id}</div>;
+
+	const [data, setData] = useState(null);
+	const [isLoading, setIsLoading] = useState(false);
+	const [isError, setIsError] = useState(false);
+	let { id } = useParams();
+
+	useEffect(() => {
+		async function getData(url) {
+			try {
+				setIsLoading(true);
+				setIsError(false);
+
+				const response = await fetch(url);
+				const json = await response.json();
+
+				setData(json);
+			} catch (error) {
+				console.log(error);
+			} finally {
+				setIsLoading(false);
+			}
+		}
+
+		getData(`https://api.noroff.dev/api/v1/online-shop/${id}`);
+	}, [id]);
+
+	if (isLoading || !data) {
+		return <div>Loading</div>;
+	}
+
+	if (isError) {
+		return <div>Error</div>;
+	}
+
+	console.log(data);
+
+	return (
+		<Card style={{ width: "18rem", boxShadow: "5px 5px 5px rgba(155, 155, 155, 0.50)", border: "none" }}>
+			<Card.Img variant="top" src={data.imageUrl} />
+			<Card.Body>
+				<Card.Title>{data.title}</Card.Title>
+				<Card.Text>{data.description}</Card.Text>
+				<Button variant="info">Add to cart</Button>
+			</Card.Body>
+		</Card>
+	);
 }
 
 function RouteNotFound() {
@@ -126,9 +191,10 @@ function App() {
 					<Route index element={<Home />} />
 					<Route path="About" element={<About />} />
 					<Route path="ContactUs" element={<ContactUs />} />
-					<Route path="Products" element={<ProductPage />} />
-					<Route path="product/:id" element={<Product />} />
+					<Route path="checkout" element={<Checkout />} />
+					<Route path="/:id" element={<Product />} />
 					<Route path="*" element={<RouteNotFound />} />
+					<Route path="online-shop/:id" element={<Product />} />
 				</Routes>
 			</div>
 		</div>
