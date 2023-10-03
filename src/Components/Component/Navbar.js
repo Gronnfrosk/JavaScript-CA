@@ -28,6 +28,7 @@ function CollapsibleNavbar() {
 						<Nav.Link href="#deets">Shop</Nav.Link>
 						<Nav.Link eventKey={2} href="/checkout">
 							<FaShoppingCart id="shopping-cart" />
+							<span class="badge text-bg-secondary">4</span>
 						</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>

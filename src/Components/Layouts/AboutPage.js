@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function AboutLayout() {
+function About() {
 	return (
 		<div className="pt-3 w-75 m-auto pb-5">
 			<h1>About eCom</h1>
@@ -31,4 +31,4 @@ function AboutLayout() {
 	);
 }
 
-export default AboutLayout();
+export default About;
