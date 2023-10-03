@@ -3,7 +3,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaShoppingCart } from "react-icons/fa";
-import React from "react";
+import React, { useState } from "react";
+import Overlay from "react-bootstrap/Overlay";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Button from "react-bootstrap/Button";
 
 function CollapsibleNavbar() {
 	return (
@@ -14,22 +18,13 @@ function CollapsibleNavbar() {
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
 						<Nav.Link href="/">Home</Nav.Link>
-						<Nav.Link href="/About">About</Nav.Link>
-						<Nav.Link href="/ContactUs">Contact</Nav.Link>
+						<Nav.Link href="/about">About</Nav.Link>
+						<Nav.Link href="/contactUs">Contact</Nav.Link>
 						<NavDropdown title="Products" id="collapsible-nav-dropdown">
 							<NavDropdown.Item href="/Product1">Product type 1</NavDropdown.Item>
 							<NavDropdown.Item href="/Product2">Product type 2</NavDropdown.Item>
 							<NavDropdown.Item href="/Product3">Product type 3</NavDropdown.Item>
-							<NavDropdown.Divider />
-							<NavDropdown.Item href="/All">All products</NavDropdown.Item>
 						</NavDropdown>
-					</Nav>
-					<Nav>
-						<Nav.Link href="#deets">Shop</Nav.Link>
-						<Nav.Link eventKey={2} href="/checkout">
-							<FaShoppingCart id="shopping-cart" />
-							<span class="badge text-bg-secondary">4</span>
-						</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

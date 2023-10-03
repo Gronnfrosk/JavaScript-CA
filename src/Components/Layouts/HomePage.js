@@ -6,6 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import React, { useEffect, useState } from "react";
+import SeeCart from "../Component/Cart";
 
 function Home() {
 	const url = "https://api.noroff.dev/api/v1/online-shop";
@@ -58,6 +59,7 @@ function Home() {
 	}
 	return (
 		<div>
+			<SeeCart />
 			<div className="pt-3 pb-3">
 				<h1>Welcome to eCom</h1>
 			</div>

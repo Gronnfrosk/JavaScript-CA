@@ -8,6 +8,7 @@ import ContactUs from "../Layouts/ContactPage";
 import RouteNotFound from "../Layouts/NotFoundPage";
 import Product from "../Layouts/ProductPage.js";
 import Checkout from "../Layouts/CheckoutPage.js";
+import Cart from "../Layouts/CartPage.js";
 //import CheckoutSuccess from "../Layouts/CheckoutSuccessPage.js";
 
 function Router() {
@@ -16,12 +17,12 @@ function Router() {
 			<Routes>
 				<Route path="/" element={<GlobalLayout />}>
 					<Route index element={<Home />} />
-					<Route path="About" element={<About />} />
-					<Route path="ContactUs" element={<ContactUs />} />
+					<Route path="about" element={<About />} />
+					<Route path="contactUs" element={<ContactUs />} />
 					<Route path="checkout" element={<Checkout />} />
 					<Route path=":id" element={<Product />} />
 					<Route path="*" element={<RouteNotFound />} />
-					<Route path="online-shop/:id" element={<Product />} />
+					<Route path="cart" element={<Cart />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

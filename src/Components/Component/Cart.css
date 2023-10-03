@@ -1,0 +1,15 @@
+.FixedCart {
+    position: fixed;
+    top: 20px;
+    right: 0;
+    z-index: 3;
+}
+
+.CartBlue {
+    padding: 12px 25px 12px 15px;
+}
+
+.fade {
+    position: absolute;
+    right: 0; 
+}
