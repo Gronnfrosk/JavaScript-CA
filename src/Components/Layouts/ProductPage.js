@@ -7,7 +7,8 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Spinner from "react-bootstrap/Spinner";
 import RouteNotFound from "./NotFoundPage";
-import { ReviewsContent } from "../Component/Reviews";
+import { ReviewsContent } from "../Component/ReviewsProduct.js";
+import { Discount } from "../Component/DiscountPrize";
 
 function Product() {
 	let params = useParams();
@@ -67,10 +68,13 @@ function Product() {
 					<Card.Body>
 						<div className="mx-1 mb-4">
 							<div className="d-flex justify-content-end align-items-baseline gap-3">
-								<Card.Text>
-									<b>Prize:</b> {data.price}
+								<Card.Text className="d-flex align-items-baseline">
+									<div className="d-flex align-items-center">
+										<b className="border-bottom border-3 h-0 me-1">Price:</b>
+									</div>
+									<div className="text-center ms-2">{Discount(data)}</div>
 								</Card.Text>
-								<Button variant="info">Add to cart</Button>
+								<Button variant="info h-25">Add to cart</Button>
 							</div>
 							<Card.Title>{data.title}</Card.Title>
 							<Card.Text>

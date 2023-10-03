@@ -1,10 +1,12 @@
+import React from "react";
+
 export function ReviewsContent(data) {
 	const dataReviews = data.reviews;
 
 	if (dataReviews.length !== 0) {
 		return (
 			<div>
-				{dataReviews.map((review, index) => (
+				{dataReviews.map((review) => (
 					<div className="row g-5 py-2">
 						<div className="col-4 text-center">
 							<div className="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-2 mb-2">
