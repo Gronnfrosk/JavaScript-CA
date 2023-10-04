@@ -3,43 +3,14 @@ import Spinner from "react-bootstrap/Spinner";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FaSearch } from "react-icons/fa";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SeeCart from "../Component/Cart";
+import { ProductCardHome } from "../Component/ProductCardHome.jsx";
+import { AllProducts } from "../Component/ProductData.js";
 
 function Home() {
-	const url = "https://api.noroff.dev/api/v1/online-shop";
-
-	// State for holding Loaded products, search products, loading, error state.
-	const [data, setData] = useState([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
 	const [search, setSearch] = useState("");
-
-	useEffect(() => {
-		// Function that gets our products
-		async function getData() {
-			try {
-				// Reset the error state in case there is an error previously
-				setIsError(false);
-				// Turn on the loading state each time we do an API call
-				setIsLoading(true);
-				const response = await fetch(url);
-				const json = await response.json();
-				setData(json);
-				// Clear the loading state once we've successfully got our data
-				setIsLoading(false);
-			} catch (error) {
-				// Clear the loading state if we get an error and then
-				// set our error state to true
-				setIsLoading(false);
-				setIsError(true);
-			}
-		}
-
-		getData();
-	}, []);
+	const [data, isLoading, isError] = AllProducts();
 
 	if (isLoading) {
 		return (
@@ -79,16 +50,7 @@ function Home() {
 							return search.toLowerCase() === "" ? item : item.title.toLowerCase().includes(search);
 						})
 						.map((item, index) => (
-							<Card style={{ width: "18rem", boxShadow: "5px 5px 5px rgba(155, 155, 155, 0.50)", border: "none" }} key={index}>
-								<Card.Img variant="top" src={item.imageUrl} />
-								<Card.Body>
-									<Card.Title key={index}>{item.title}</Card.Title>
-									<Card.Text>{item.description}</Card.Text>
-									<Button variant="info" href={item.id}>
-										View product
-									</Button>
-								</Card.Body>
-							</Card>
+							<ProductCardHome key={index} data={item} />
 						))}
 				</div>
 			</div>

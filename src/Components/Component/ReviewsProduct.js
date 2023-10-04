@@ -1,16 +1,16 @@
 import React from "react";
 
-export function ReviewsContent(data) {
-	const dataReviews = data.reviews;
+export function ReviewsContent(props) {
+	const { id, title, description, price, discountedPrice, imageUrl, rating, tags, reviews } = props.data;
 
-	if (dataReviews.length !== 0) {
+	if (reviews !== 0 || reviews !== undefined) {
 		return (
 			<div>
-				{dataReviews.map((review) => (
-					<div className="row g-5 py-2">
+				{reviews.map((review, index) => (
+					<div key={index} className="row g-5 py-2">
 						<div className="col-4 text-center">
 							<div className="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-2 mb-2">
-								<span class="badge">{review.rating}</span>
+								<span className="badge">{review.rating}</span>
 							</div>
 							<p>Rating score</p>
 						</div>
