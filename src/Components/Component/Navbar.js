@@ -2,14 +2,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { FaShoppingCart } from "react-icons/fa";
-import React, { useState } from "react";
-import Overlay from "react-bootstrap/Overlay";
-import Tooltip from "react-bootstrap/Tooltip";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Button from "react-bootstrap/Button";
+import React from "react";
 
-function CollapsibleNavbar() {
+export function CollapsibleNavbar() {
 	return (
 		<Navbar collapseOnSelect expand="lg" data-bs-theme="dark" bg={"dark"} className="bg-body-tertiary">
 			<Container>
@@ -31,5 +26,3 @@ function CollapsibleNavbar() {
 		</Navbar>
 	);
 }
-
-export default CollapsibleNavbar;

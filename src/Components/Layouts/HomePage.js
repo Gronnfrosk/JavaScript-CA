@@ -28,6 +28,7 @@ function Home() {
 			</Alert>
 		);
 	}
+
 	return (
 		<div>
 			<SeeCart />

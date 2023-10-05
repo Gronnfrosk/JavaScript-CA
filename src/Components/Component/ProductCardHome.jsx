@@ -1,7 +1,6 @@
 import React from 'react'
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { ShopContext } from "./ShopContextProvider"
 
 export const ProductCardHome = (props) => {
     const {id, title, description, price, discountedPrice, imageUrl, rating, tags, reviews } = props.data

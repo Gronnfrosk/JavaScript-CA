@@ -10,9 +10,12 @@ import { ReviewsContent } from "../Component/ReviewsProduct.js";
 import { Discount } from "../Component/DiscountPrize";
 import SeeCart from "../Component/Cart";
 import { SpecificProduct } from "../Component/ProductData.js";
+import { addToCart } from "../Component/CartReducer.jsx";
+import { useDispatch } from "react-redux";
 
 function Product() {
 	const [data, isLoading, isError] = SpecificProduct();
+	const dispatch = useDispatch();
 
 	if (isLoading || !data) {
 		return (
@@ -48,12 +51,28 @@ function Product() {
 										<Discount data={data} />
 									</div>
 								</div>
-								<Button variant="info h-25">Add to cart</Button>
+								<Button
+									variant="info h-25"
+									className="addToCartBtn"
+									onClick={() =>
+										dispatch(
+											addToCart({
+												id: data.id,
+												title: data.title,
+												price: data.price,
+												amount: 1,
+												totalPrice: data.price,
+											})
+										)
+									}
+								>
+									Add to cart
+								</Button>
 							</div>
 							<Card.Title>{data.title}</Card.Title>
 							<Card.Text>
 								<b>Product description:</b>
-								<br /> {data.description}
+								<br /> {data.description}S
 							</Card.Text>
 						</div>
 					</Card.Body>

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalLayout from "../Layouts/GlobalLayout.js";
-
 import Home from "../Layouts/HomePage";
 import About from "../Layouts/AboutPage";
 import ContactUs from "../Layouts/ContactPage";

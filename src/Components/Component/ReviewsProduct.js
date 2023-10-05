@@ -3,7 +3,7 @@ import React from "react";
 export function ReviewsContent(props) {
 	const { id, title, description, price, discountedPrice, imageUrl, rating, tags, reviews } = props.data;
 
-	if (reviews !== 0 || reviews !== undefined) {
+	if (reviews.length !== 0 && reviews !== undefined) {
 		return (
 			<div>
 				{reviews.map((review, index) => (
@@ -25,7 +25,7 @@ export function ReviewsContent(props) {
 	} else {
 		return (
 			<div className="mb-2">
-				<div>Currently no reviews yet on this product</div>
+				<p>Currently no reviews yet on this product</p>
 			</div>
 		);
 	}
