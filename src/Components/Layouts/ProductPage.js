@@ -8,15 +8,13 @@ import Spinner from "react-bootstrap/Spinner";
 import RouteNotFound from "./NotFoundPage";
 import { ReviewsContent } from "../Component/ReviewsProduct.js";
 import { Discount } from "../Component/DiscountPrize";
-import SeeCart from "../Component/Cart";
 import { SpecificProduct } from "../Component/ProductData.js";
-import { addToCart } from "../Component/CartReducer.jsx";
-import { useDispatch } from "react-redux";
+//import { OnAdd } from "../Component/Cart.js"
 
-function Product() {
+function Product(props) {
 	const [data, isLoading, isError] = SpecificProduct();
-	const dispatch = useDispatch();
-
+	const { onAdd } = props;
+	
 	if (isLoading || !data) {
 		return (
 			<Spinner animation="border" role="status" variant="info">
@@ -37,7 +35,6 @@ function Product() {
 	if (data.title !== undefined) {
 		return (
 			<div className="Product">
-				<SeeCart />
 				<Card>
 					<Card.Img variant="top" src={data.imageUrl} />
 					<Card.Body>
@@ -54,18 +51,8 @@ function Product() {
 								<Button
 									variant="info h-25"
 									className="addToCartBtn"
-									onClick={() =>
-										dispatch(
-											addToCart({
-												id: data.id,
-												title: data.title,
-												price: data.price,
-												amount: 1,
-												totalPrice: data.price,
-											})
-										)
-									}
-								>
+									onClick = {() => onAdd(data)}
+									>
 									Add to cart
 								</Button>
 							</div>

@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FaSearch } from "react-icons/fa";
 import React, { useState } from "react";
-import SeeCart from "../Component/Cart";
+import { SeeCart } from "../Component/Cart";
 import { ProductCardHome } from "../Component/ProductCardHome.jsx";
 import { AllProducts } from "../Component/ProductData.js";
 
@@ -31,7 +31,6 @@ function Home() {
 
 	return (
 		<div>
-			<SeeCart />
 			<div className="pt-3 pb-3">
 				<h1>Welcome to eCom</h1>
 			</div>
