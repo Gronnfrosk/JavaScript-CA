@@ -4,7 +4,7 @@ import Footer from "../Component/Footer.js";
 import "./GlobalStyle.css";
 import { Outlet } from "react-router-dom";
 import { SeeCart } from "../Component/Cart.js";
-import React, { useState, useRef } from "react";
+import React from "react";
 
 
 function GlobalLayout(props) {

@@ -7,7 +7,7 @@ function About() {
 	return (
 		<div className="pt-3 w-75 m-auto pb-5">
 			<h1>About eCom</h1>
-			<Image src="showing-cart-trolley-shopping-online-sign-graphic.jpg" alt="eCom about picture" style={{ maxWidth: "300px", width: "100%" }} thumbnail />
+			<Image src="showing-cart-trolley-shopping-online-sign-graphic.jpg" alt="eCom about picture" style={{ maxWidth: "300px", width: "100%", display: "flex", margin: "auto"}} thumbnail />
 			<Card border="info" style={{ width: "100%", margin: "40px 0" }}>
 				<Card.Header>Established in 2023</Card.Header>
 				<Card.Body>

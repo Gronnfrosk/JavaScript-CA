@@ -9,7 +9,6 @@ import RouteNotFound from "./NotFoundPage";
 import { ReviewsContent } from "../Component/ReviewsProduct.js";
 import { Discount } from "../Component/DiscountPrize";
 import { SpecificProduct } from "../Component/ProductData.js";
-//import { OnAdd } from "../Component/Cart.js"
 
 function Product(props) {
 	const [data, isLoading, isError] = SpecificProduct();
@@ -59,7 +58,7 @@ function Product(props) {
 							<Card.Title>{data.title}</Card.Title>
 							<Card.Text>
 								<b>Product description:</b>
-								<br /> {data.description}S
+								<br /> {data.description}
 							</Card.Text>
 						</div>
 					</Card.Body>
