@@ -1,6 +1,5 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import Image from "react-bootstrap/Image";
-
 import Button from 'react-bootstrap/Button';
 
 export default function ChartList(props) {
@@ -17,7 +16,7 @@ export default function ChartList(props) {
 					<td style={{ paddingTop: "20px"}}>{item.title}</td>
 					<td style={{ paddingTop: "10px", textAlign: "center"}}><Button variant="light border border-dark" onClick={() => onAdd(item)} style={{ height: "fit-content", width: "35px", margin: "5px"}}>+</Button><Button variant="dark fw-bold" onClick={() => onRemove(item)} style={{ height: "fit-content", width: "35px", margin: "5px"}}>-</Button></td>
 					<td style={{ paddingTop: "20px"}}>{item.qty} {"  x  "} {(item.discountedPrice).toFixed(0)}</td>
-					<td style={{ paddingTop: "20px"}}>{(item.qty * item.discountedPrice).toFixed(0)}</td>
+					<td style={{ paddingTop: "20px"}}>${(item.qty * item.discountedPrice).toFixed(0)}</td>
 				</tr>
 			))}
 			<tr style={{borderTop: "double 3px black"}}>
@@ -25,8 +24,8 @@ export default function ChartList(props) {
 				<td></td>
 				<td style={{ paddingTop: "20px", paddingLeft: "20px"}}>{arrayItemsQtyCheckout}</td>
 				<td style={{ paddingTop: "10px", textAlign: "center"}}><Button variant="dark" onClick = {() => localStorage.clear()} style={{ height: "fit-content", width: "35px", margin: "5px"}}>X</Button><Button variant="light border border-dark" style={{ height: "fit-content", width: "35px", margin: "5px", visibility: "hidden"}}>+</Button></td>
-				<td style={{ paddingTop: "20px"}}>Clear cart</td>
-				<td style={{ paddingTop: "20px"}}>{arrayItemCostCheckout.toFixed(0)}</td>
+				<td></td>
+				<td style={{ paddingTop: "20px"}}>${arrayItemCostCheckout.toFixed(0)}</td>
 				
         	</tr>
 		</tbody>

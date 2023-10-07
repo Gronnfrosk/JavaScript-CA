@@ -17,11 +17,8 @@ function CheckoutLayout(props) {
 		} else {
 			const checkoutbtn = <Button variant="success w-100 mb-5" onClick = {() => 
 				localStorage.clear()} href="/CheckoutSuccess">Checkout</Button>
-			
 			return checkoutbtn
 		}
-		
-
 	}
 
 	return <>
