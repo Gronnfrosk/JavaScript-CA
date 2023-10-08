@@ -1,13 +1,22 @@
-import CollapsibleNavbar from "../Component/Navbar.js";
+import { CollapsibleNavbar } from "../Component/Navbar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../Component/Footer.js";
+import "./GlobalLayout.css";
+import { Outlet } from "react-router-dom";
+import { SeeCart } from "../Component/Cart.js";
+import React from "react";
 
-function GlobalLayout() {
+
+function GlobalLayout(props) {
+	const { onRemove, onAdd, cartItems } = props;
+
 	return (
-		<div className="App">
+		<>
 			<CollapsibleNavbar />
+			<SeeCart onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/> 
+			<Outlet />
 			<Footer />
-		</div>
+		</>
 	);
 }
 
