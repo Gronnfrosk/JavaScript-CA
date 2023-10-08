@@ -1,7 +1,7 @@
 import { CollapsibleNavbar } from "../Component/Navbar.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../Component/Footer.js";
-import "./GlobalStyle.css";
+import "./GlobalLayout.css";
 import { Outlet } from "react-router-dom";
 import { SeeCart } from "../Component/Cart.js";
 import React from "react";

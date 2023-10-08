@@ -20,7 +20,6 @@ function App() {
 
   	const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id)
-
     if (exist) {
 		const newCartItems = cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x);
 		const arrayItemsQty = (newCartItems.map((i) => i.qty)).reduce((a, b) => a + b, 0)
