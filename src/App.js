@@ -78,12 +78,12 @@ function App() {
 				<Routes>
 					<Route path="/" element={<GlobalLayout onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>}>
 						<Route index element={<Home/>} />
-						<Route path="about" element={<About />} />
-						<Route path="contactUs" element={<ContactUs />} />
-						<Route path="checkout" element={<Checkout arrayItemsQtyCheckout={arrayItemsQtyCheckout} arrayItemCostCheckout={arrayItemCostCheckout} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>} />
-						<Route path="checkoutSuccess" element={<CheckoutSuccess />} />
-						<Route path=":id" element={<Product onAdd={onAdd}/>} />
-						<Route path="*" element={<RouteNotFound />} />
+						<Route path="/about" element={<About />} />
+						<Route path="/contactUs" element={<ContactUs />} />
+						<Route path="/checkout" element={<Checkout arrayItemsQtyCheckout={arrayItemsQtyCheckout} arrayItemCostCheckout={arrayItemCostCheckout} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>} />
+						<Route path="/checkoutSuccess" element={<CheckoutSuccess />} />
+						<Route path="/:id" element={<Product onAdd={onAdd}/>} />
+						<Route path="/*" element={<RouteNotFound />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
