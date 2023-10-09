@@ -1,0 +1,22 @@
+.Product {
+    .card {
+        max-width: 40rem;
+        box-Shadow: 5px 5px 5px rgba(155, 155, 155, 0.50);
+        margin: 0px auto 100px auto;
+    }
+
+    img {
+        margin: auto;
+        width: 50%;
+    }
+
+    .card-title {
+        margin-top: 20px;
+    }
+
+    .card-footer,
+    .card-text {
+        display: flex;
+        justify-content: flex-start;
+    }
+}

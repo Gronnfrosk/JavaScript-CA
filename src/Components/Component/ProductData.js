@@ -1,20 +1,6 @@
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export function AllProducts() {
-	const url = "https://api.noroff.dev/api/v1/online-shop";
-
-	return GetProduct(url);
-}
-
-export function SpecificProduct() {
-	let params = useParams();
-	const url = `https://api.noroff.dev/api/v1/online-shop/${params.id}`;
-
-	return GetProduct(url);
-}
-
-function GetProduct(url) {
+export function GetProductApi(url) {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
