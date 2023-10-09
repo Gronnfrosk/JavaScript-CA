@@ -1,0 +1,54 @@
+.checkout {
+    max-width: 800px;
+    margin: auto;
+
+    th {
+        background-color: #212529 !important;
+        color: #FFF !important;
+        min-width: 41px;
+    }
+}
+
+table {
+    button {
+        width: 25px;
+        height: fit-content;
+        margin: 2px;
+        text-align: center !important;
+        padding: 0px !important;
+    }
+
+    img {
+        max-height: 50px;
+        width: auto;
+        min-width: 10px;
+        margin: auto;
+    }
+
+    .totalCart {
+        border-top: 5px double #212529a1;
+        font-weight: bold;
+        height: 50px;
+
+        td {
+            padding-top: 10px !important;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    table>:not(caption)>*>* {
+        padding: 0.25rem 0.25rem !important;
+    }
+
+    .checkout {
+        td {
+            img {
+                max-height: 30px;
+            }
+        }
+    }
+
+
+}

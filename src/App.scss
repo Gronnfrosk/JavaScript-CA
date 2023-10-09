@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App h1,
+.card-title,
+.card-body {
+  text-align: center;
+}
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.input-wrapper {
+  background-color: white;
+  margin: auto;
+  width: 300px;
+  border-radius: 10px;
+  height: 2.5rem;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #ddd;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.15rem;
+  width: 100%;
+  margin-left: 10px;
+}
+
+#moreInputStyle:focus {
+  box-shadow: none;
+  opacity: 0.75;
+}
+
+.search-bar-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+
+  .search-icon {
+    color: #0dcaf0;
+  }
+
+  #clearBtn:hover {
+    cursor: pointer;
+  }
+
+  .searchAlert {
+    margin-top: 200px
+  }
+
+
+}
+
+.card-body .card-text {
+  text-align: start;
+}
+
+#Results {
+  background-color: #fff;
+  z-index: 2;
+}
+
+button:hover,
+a:hover,
+.cartBtn:hover {
+  transition: background-color linear 600ms, color 600ms, border 600ms;
+  font-weight: bold;
+  background-color: #3f444d !important;
+  color: white !important;
+  border-color: #3f444d !important;
+}
+
+.loading {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .spinner-border {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.errorLoad {
+  margin-top: 30px;
+
+  .alert {
+    max-width: 600px;
+    margin: auto;
+  }
+}
