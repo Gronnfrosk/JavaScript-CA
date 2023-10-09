@@ -29,6 +29,7 @@ const schema = yup
 			.required(),
 		Comments: yup
 			.string()
+			.min(3, 'Your comment should be at least 3 characters.')
 			.required(),
 	})
 	.required();
