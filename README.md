@@ -1,4 +1,4 @@
-# An eCom store build with Javascript frameworks like React
+# An eCom store build with Javascript framework React
 ![image](https://github.com/Gronnfrosk/JavaScript-CA/assets/91615712/5d587513-19b0-4a96-8865-9199f5860c9c)
 
 ## Description
