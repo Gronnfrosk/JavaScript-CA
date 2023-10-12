@@ -11,27 +11,29 @@ Your design should be responsive. You are welcome to use a CSS Framework, howeve
 
 You are tasked with build out the following pages for an eCom store:
 
-1.   **Home page:** This page contains a list of all the products and clicking on a product card takes a user to an individual product page. The page also has a auto-complete search bar that filters products when typing in a product name. 
-2.   **About page**: Just an image and text card.
-3.   **Contact:** The contact page which contains a contact form with the following fields and form validation(yup):
+1.   **Home page:** This page contains a list of all the products and clicking on a product card takes a user to an individual product page. The page also has a auto-complete search bar that filters products when typing in a product name.
 
-- Full name (Minimum number of characters is 3, Maximum number of characters is 30, required)
-- Subject (Minimum number of characters is 3, Maximum number of characters is 30, required)
-- Email (Minimum number of characters is 3, Maximum number of characters is 30, Must be a valid email address, required)
-- Body (Minimum number of characters is 3, required)
+2.   **About page**: Just an image and text card.
+
+3.   **Contact:** The contact page which contains a contact form with the following fields and form validation:
+   - Full name (Minimum number of characters is 3, Maximum number of characters is 30, required)
+   - Subject (Minimum number of characters is 3, Maximum number of characters is 30, required)
+   - Email (Minimum number of characters is 3, Maximum number of characters is 30, Must be a valid email address, required)
+   - Body (Minimum number of characters is 3, required)
 
 4.   **Individual product page:** Here data for a single product is displayed. The products data: Title, image, description, price, discount and reviews. There is also an Add to cart button which, upon clicking, adds the product to the cart.
+
 5.   **Checkout/Cart page:** After cliking th cart icon to the left that also displays number of items in cart you will get to the checkout page. List of all of the products in the cart is shown here and a Checkout button.
+
 6.   **Checkout success page:** A message to the user notifying them that their order was successful and a link that lets a user go back to the store. The cart gets cleared if the user gets to the Checkout success page.
 
 ## Built With
 
+- [React](https://react.dev/)
 - [Bootstrap v.5.3.2](https://getbootstrap.com)
 - [SASS/SCSS v.1.68.0](https://sass-lang.com/)
-- [React](https://react.dev/)
-- https://www.npmjs.com/package/react-hook-form
-- https://www.npmjs.com/package/yup
-- 
+- [react-hook-form](https://www.npmjs.com/package/react-hook-form)
+- [yup](https://www.npmjs.com/package/yup)
 
 ## Getting Started
 
