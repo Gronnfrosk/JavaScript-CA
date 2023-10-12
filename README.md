@@ -2,13 +2,11 @@
 ![image](https://github.com/Gronnfrosk/JavaScript-CA/assets/91615712/5d587513-19b0-4a96-8865-9199f5860c9c)
 
 ## Description
-**Goal of this project: To apply knowledge of React to build an eCom store.
-
+- Goal of this project: To apply knowledge of React to build an eCom store.
 
 This project is to learn about React and therefore simple design and the required features specifide in the CA. 
 You will be using React Router to switch between pages.
 Your design should be responsive. You are welcome to use a CSS Framework, however, you’re encouraged to design from scratch and use styled-components or CSS Modules.
-
 
 You are tasked with build out the following pages for an eCom store:
 
