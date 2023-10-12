@@ -1,8 +1,9 @@
 # An eCom store build with Javascript framework React
 ![image](https://github.com/Gronnfrosk/JavaScript-CA/assets/91615712/5d587513-19b0-4a96-8865-9199f5860c9c)
 
-## Description
 - Goal of this project: To apply knowledge of React to build an eCom store.
+
+## Description
 
 This project is to learn about React and therefore simple design and the required features specifide in the CA. 
 You will be using React Router to switch between pages.
@@ -10,24 +11,18 @@ Your design should be responsive. You are welcome to use a CSS Framework, howeve
 
 You are tasked with build out the following pages for an eCom store:
 
-1.   **Home page**
-  - This page contains a list of all the products and clicking on a product card takes a user to an individual product page. The page also has a auto-complete search bar that filters products when typing in a product name. 
-2.   **About page**
-    Just an image and text card.
-3.   **Contact**
-The contact page which contains a contact form with the following fields and form validation(yup):
+1.   **Home page:** This page contains a list of all the products and clicking on a product card takes a user to an individual product page. The page also has a auto-complete search bar that filters products when typing in a product name. 
+2.   **About page**: Just an image and text card.
+3.   **Contact:** The contact page which contains a contact form with the following fields and form validation(yup):
 
 - Full name (Minimum number of characters is 3, Maximum number of characters is 30, required)
 - Subject (Minimum number of characters is 3, Maximum number of characters is 30, required)
 - Email (Minimum number of characters is 3, Maximum number of characters is 30, Must be a valid email address, required)
 - Body (Minimum number of characters is 3, required)
 
-4.   **Individual product page**
-  - Here data for a single product is displayed. The products data: Title, image, description, price, discount and reviews. There is also an Add to cart button which, upon clicking, adds the product to the cart.
-5.   **Checkout/Cart page**
-  - After cliking th cart icon to the left that also displays number of items in cart you will get to the checkout page. List of all of the products in the cart is shown here and a Checkout button.
-6.   **Checkout success page**
-  - A message to the user notifying them that their order was successful and a link that lets a user go back to the store. The cart gets cleared if the user gets to the Checkout success page.
+4.   **Individual product page:** Here data for a single product is displayed. The products data: Title, image, description, price, discount and reviews. There is also an Add to cart button which, upon clicking, adds the product to the cart.
+5.   **Checkout/Cart page:** After cliking th cart icon to the left that also displays number of items in cart you will get to the checkout page. List of all of the products in the cart is shown here and a Checkout button.
+6.   **Checkout success page:** A message to the user notifying them that their order was successful and a link that lets a user go back to the store. The cart gets cleared if the user gets to the Checkout success page.
 
 ## Built With
 
