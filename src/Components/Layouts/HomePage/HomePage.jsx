@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useGetProductApi } from "../../Component/ProductData.js";
+import { useGetProductApi } from "../../Component/ProductData";
 import { SpinnerLoad, ErrorLoad } from "../../Component/Spinner&error";
-import { ProductCardHome } from "../../Component/ProductCardHome.jsx";
+import { ProductCardHome } from "../../Component/ProductCardHome";
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -62,8 +62,8 @@ function Home() {
               <ProductCardHome key={index} data={item} />
             ))}
         </div>
-        
-      </div><div style={{height: "300px"}}></div>
+      </div>
+      <div style={{ height: "300px" }}></div>
     </div>
   );
 }
