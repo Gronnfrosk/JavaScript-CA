@@ -62,7 +62,8 @@ function Home() {
               <ProductCardHome key={index} data={item} />
             ))}
         </div>
-      </div>
+        
+      </div><div style={{height: "300px"}}></div>
     </div>
   );
 }
