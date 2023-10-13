@@ -24,12 +24,7 @@ export function CollapsibleNavbar(props) {
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/contactUs">Contact</Nav.Link>
           </Nav>
-          <SeeCart
-            className="d-flex justify-content-end"
-            onAdd={onAdd}
-            onRemove={onRemove}
-            cartItems={cartItems}
-          />
+          <SeeCart onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -15,7 +15,7 @@ function CheckoutSuccessLayout() {
       <Alert
         variant="info"
         className="mt-4 mx-auto text-center"
-        style={{ maxWidth: "400px" }}
+        style={{ maxWidth: "400px", marginBottom: "100px" }}
       >
         Your order is now placed in our systems!
         <br />
