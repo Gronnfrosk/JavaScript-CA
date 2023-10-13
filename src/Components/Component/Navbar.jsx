@@ -2,8 +2,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
+import { SeeCart } from "../Component/Cart";
 
-export function CollapsibleNavbar() {
+export function CollapsibleNavbar(props) {
+  const { onRemove, onAdd, cartItems } = props;
+
   return (
     <Navbar
       collapseOnSelect
@@ -13,7 +16,7 @@ export function CollapsibleNavbar() {
       className="bg-body-tertiary"
     >
       <Container>
-        <Navbar.Brand href="#home">eCom</Navbar.Brand>
+        <Navbar.Brand href="/">eCom</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -21,6 +24,12 @@ export function CollapsibleNavbar() {
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/contactUs">Contact</Nav.Link>
           </Nav>
+          <SeeCart
+            className="d-flex justify-content-end"
+            onAdd={onAdd}
+            onRemove={onRemove}
+            cartItems={cartItems}
+          />
         </Navbar.Collapse>
       </Container>
     </Navbar>
