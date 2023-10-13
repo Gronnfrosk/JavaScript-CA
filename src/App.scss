@@ -10,8 +10,6 @@
   text-align: center;
 }
 
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,8 +21,9 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-link,
+footer a {
+  color: #61dafb !important;
 }
 
 .input-wrapper {
@@ -69,10 +68,8 @@ input {
   }
 
   .searchAlert {
-    margin-top: 200px
+    margin-top: 200px;
   }
-
-
 }
 
 .card-body .card-text {
@@ -86,12 +83,17 @@ input {
 
 button:hover,
 a:hover,
-.cartBtn:hover {
-  transition: background-color linear 600ms, color 600ms, border 600ms;
+.cartBtn:hover,
+footer svg:hover {
+  transition:
+    background-color linear 600ms,
+    color 600ms,
+    border 600ms;
   font-weight: bold;
   background-color: #3f444d !important;
   color: white !important;
   border-color: #3f444d !important;
+  cursor: pointer;
 }
 
 .loading {
