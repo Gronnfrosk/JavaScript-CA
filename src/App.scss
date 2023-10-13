@@ -21,8 +21,8 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-link, footer a {
+  color: #61dafb!important;
 }
 
 .input-wrapper {
@@ -82,7 +82,7 @@ input {
 
 button:hover,
 a:hover,
-.cartBtn:hover {
+.cartBtn:hover, footer svg:hover  {
   transition:
     background-color linear 600ms,
     color 600ms,
@@ -91,6 +91,7 @@ a:hover,
   background-color: #3f444d !important;
   color: white !important;
   border-color: #3f444d !important;
+  cursor: pointer;
 }
 
 .loading {
