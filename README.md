@@ -30,6 +30,7 @@ You are tasked with build out the following pages for an eCom store:
 ## Built With
 
 - [React](https://react.dev/)
+- [Prettier](https://prettier.io/)
 - [Bootstrap v.5.3.2](https://getbootstrap.com)
 - [SASS/SCSS v.1.68.0](https://sass-lang.com/)
 - [react-hook-form](https://www.npmjs.com/package/react-hook-form)
@@ -42,7 +43,9 @@ You are tasked with build out the following pages for an eCom store:
 [git clone https://github.com/Gronnfrosk/Ja](https://github.com/Gronnfrosk/JavaScript-CA.git)
 ```
 2. Run ```npm install``` to install all dependencies.
-3. Run ```npm start``` to start runs the app in the development mode.
+3. Write ```npm run start``` to start runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+- To format code with Prettier:
+type ```npm run format```
 
