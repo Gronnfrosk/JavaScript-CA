@@ -24,7 +24,16 @@ export const ProductCardHome = (props) => {
         border: "none",
       }}
     >
-      <Card.Img variant="top" src={imageUrl} />
+      <Card.Img
+        variant="top"
+        src={imageUrl}
+        style={{
+          width: "100%",
+          height: "auto",
+          aspectRatio: "1/1",
+          objectFit: "cover",
+        }}
+      />
       <Card.Body className="d-flex flex-column justify-content-between">
         <div>
           <Card.Title>{title}</Card.Title>

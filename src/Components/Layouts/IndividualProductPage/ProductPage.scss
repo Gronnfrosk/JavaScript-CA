@@ -1,17 +1,16 @@
 .Product {
   .card {
-    max-width: 40rem;
+    max-width: 30rem;
     box-shadow: 5px 5px 5px rgba(155, 155, 155, 0.5);
     margin: 0px auto 100px auto;
   }
 
-  img {
-    margin: auto;
-    width: 50%;
-  }
-
   .card-title {
     margin-top: 20px;
+  }
+
+  .description {
+    margin-bottom: 0 !important;
   }
 
   .card-footer,
