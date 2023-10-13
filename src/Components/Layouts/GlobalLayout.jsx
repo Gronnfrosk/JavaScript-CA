@@ -5,18 +5,17 @@ import { Outlet } from "react-router-dom";
 import { SeeCart } from "../Component/Cart";
 import React from "react";
 
-
 function GlobalLayout(props) {
-	const { onRemove, onAdd, cartItems } = props;
+  const { onRemove, onAdd, cartItems } = props;
 
-	return (
-		<>
-			<CollapsibleNavbar />
-			<SeeCart onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />
-			<Outlet />
-			<Footer />
-		</>
-	);
+  return (
+    <>
+      <CollapsibleNavbar />
+      <SeeCart onAdd={onAdd} onRemove={onRemove} cartItems={cartItems} />
+      <Outlet />
+      <Footer />
+    </>
+  );
 }
 
 export default GlobalLayout;

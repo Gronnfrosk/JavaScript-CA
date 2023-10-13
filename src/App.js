@@ -1,7 +1,7 @@
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalLayout from "./Components/Layouts/GlobalLayout";
 import Home from "./Components/Layouts/HomePage/HomePage";
@@ -12,84 +12,128 @@ import Product from "./Components/Layouts/IndividualProductPage/ProductPage";
 import Checkout from "./Components/Layouts/CheckoutPages/CheckoutPage";
 import CheckoutSuccess from "./Components/Layouts/CheckoutPages/CheckoutSuccessPage";
 
-
 function App() {
-	const [cartItems, setCartItems] = useState([]);
-	const arrayItemsQtyCheckout = (cartItems.map((i) => i.qty)).reduce((a, b) => a + b, 0)
-	const arrayItemCostCheckout = ((cartItems.map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))).reduce((a, b) => a + b, 0))
+  const [cartItems, setCartItems] = useState([]);
+  const arrayItemsQtyCheckout = cartItems
+    .map((i) => i.qty)
+    .reduce((a, b) => a + b, 0);
+  const arrayItemCostCheckout = cartItems
+    .map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))
+    .reduce((a, b) => a + b, 0);
 
-  	const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id)
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
-		const newCartItems = cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x);
-		const arrayItemsQty = (newCartItems.map((i) => i.qty)).reduce((a, b) => a + b, 0)
-		const arrayItemCost = (newCartItems.map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))).reduce((a, b) => a + b, 0)
-		setCartItems(newCartItems)
-		
-		localStorage.setItem('cartItems', JSON.stringify(newCartItems))
-		localStorage.setItem('TotalCart', JSON.stringify(arrayItemsQty))
-		localStorage.setItem('TotalCost', JSON.stringify(arrayItemCost))
-	} else {
-		const newCartItems = [...cartItems, { ...product, qty: 1 }];
-		const arrayItemsQty = (newCartItems.map((i) => i.qty)).reduce((a, b) => a + b, 0)
-		const arrayItemCost = (newCartItems.map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))).reduce((a, b) => a + b, 0)
-		setCartItems(newCartItems);
+      const newCartItems = cartItems.map((x) =>
+        x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x,
+      );
+      const arrayItemsQty = newCartItems
+        .map((i) => i.qty)
+        .reduce((a, b) => a + b, 0);
+      const arrayItemCost = newCartItems
+        .map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))
+        .reduce((a, b) => a + b, 0);
+      setCartItems(newCartItems);
 
-		localStorage.setItem('cartItems', JSON.stringify(newCartItems))
-		localStorage.setItem('TotalCart', JSON.stringify(arrayItemsQty))
-		localStorage.setItem('TotalCost', JSON.stringify(arrayItemCost))
-	};
-	}
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      localStorage.setItem("TotalCart", JSON.stringify(arrayItemsQty));
+      localStorage.setItem("TotalCost", JSON.stringify(arrayItemCost));
+    } else {
+      const newCartItems = [...cartItems, { ...product, qty: 1 }];
+      const arrayItemsQty = newCartItems
+        .map((i) => i.qty)
+        .reduce((a, b) => a + b, 0);
+      const arrayItemCost = newCartItems
+        .map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))
+        .reduce((a, b) => a + b, 0);
+      setCartItems(newCartItems);
+
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      localStorage.setItem("TotalCart", JSON.stringify(arrayItemsQty));
+      localStorage.setItem("TotalCost", JSON.stringify(arrayItemCost));
+    }
+  };
 
   const onRemove = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
-		const newCartItems = cartItems.filter((x) => x.id !== product.id);
-		const arrayItemsQty = (newCartItems.map((i) => i.qty)).reduce((a, b) => a + b, 0)
-		const arrayItemCost = (newCartItems.map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))).reduce((a, b) => a + b, 0)
-		setCartItems(newCartItems);
-		localStorage.setItem('cartItems', JSON.stringify(newCartItems))
-		localStorage.setItem('TotalCart', JSON.stringify(arrayItemsQty))
-		localStorage.setItem('TotalCost', JSON.stringify(arrayItemCost))
+      const newCartItems = cartItems.filter((x) => x.id !== product.id);
+      const arrayItemsQty = newCartItems
+        .map((i) => i.qty)
+        .reduce((a, b) => a + b, 0);
+      const arrayItemCost = newCartItems
+        .map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))
+        .reduce((a, b) => a + b, 0);
+      setCartItems(newCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      localStorage.setItem("TotalCart", JSON.stringify(arrayItemsQty));
+      localStorage.setItem("TotalCost", JSON.stringify(arrayItemCost));
     } else {
-		const newCartItems = cartItems.map((x) => 
-		x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x)
-		const arrayItemsQty = (newCartItems.map((i) => i.qty)).reduce((a, b) => a + b, 0)
-		const arrayItemCost = (newCartItems.map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))).reduce((a, b) => a + b, 0)
-		setCartItems(newCartItems);
-        
-	  localStorage.setItem('cartItems', JSON.stringify(newCartItems))
-	  localStorage.setItem('TotalCart', JSON.stringify(arrayItemsQty))
-	  localStorage.setItem('TotalCost', JSON.stringify(arrayItemCost))
+      const newCartItems = cartItems.map((x) =>
+        x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x,
+      );
+      const arrayItemsQty = newCartItems
+        .map((i) => i.qty)
+        .reduce((a, b) => a + b, 0);
+      const arrayItemCost = newCartItems
+        .map((i) => [i.qty, i.discountedPrice].reduce((a, b) => a * b))
+        .reduce((a, b) => a + b, 0);
+      setCartItems(newCartItems);
+
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      localStorage.setItem("TotalCart", JSON.stringify(arrayItemsQty));
+      localStorage.setItem("TotalCost", JSON.stringify(arrayItemCost));
     }
   };
 
-  useEffect (() => {
-	setCartItems(localStorage.getItem('cartItems')
-	 ? JSON.parse(localStorage.getItem('cartItems'))
-	 : []
-	 )
-  	}, [])
+  useEffect(() => {
+    setCartItems(
+      localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : [],
+    );
+  }, []);
 
-	return (
-		
-		<div className="App">
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<GlobalLayout onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>}>
-						<Route index element={<Home/>} />
-						<Route path="/about" element={<About />} />
-						<Route path="/contactUs" element={<ContactUs />} />
-						<Route path="/checkout" element={<Checkout arrayItemsQtyCheckout={arrayItemsQtyCheckout} arrayItemCostCheckout={arrayItemCostCheckout} onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>} />
-						<Route path="/checkoutSuccess" element={<CheckoutSuccess />} />
-						<Route path="/:id" element={<Product onAdd={onAdd}/>} />
-						<Route path="/*" element={<RouteNotFound />} />
-					</Route>
-				</Routes>
-			</BrowserRouter>
-		</div>
-		
-	);
+  return (
+	<div className="App"
+	
+	
+	>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <GlobalLayout
+                onAdd={onAdd}
+                onRemove={onRemove}
+                cartItems={cartItems}
+              />
+            }
+          >
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contactUs" element={<ContactUs />} />
+            <Route
+              path="/checkout"
+              element={
+                <Checkout
+                  arrayItemsQtyCheckout={arrayItemsQtyCheckout}
+                  arrayItemCostCheckout={arrayItemCostCheckout}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                  cartItems={cartItems}
+                />
+              }
+            />
+            <Route path="/checkoutSuccess" element={<CheckoutSuccess />} />
+            <Route path="/:id" element={<Product onAdd={onAdd} />} />
+            <Route path="/*" element={<RouteNotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
