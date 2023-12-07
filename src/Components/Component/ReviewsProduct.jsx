@@ -2,14 +2,6 @@ import React from "react";
 
 export function ReviewsContent(props) {
   const {
-    id,
-    title,
-    description,
-    price,
-    discountedPrice,
-    imageUrl,
-    rating,
-    tags,
     reviews,
   } = props.data;
 

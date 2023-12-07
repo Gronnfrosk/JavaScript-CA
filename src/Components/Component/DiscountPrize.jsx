@@ -2,15 +2,8 @@ import React from "react";
 
 export function Discount(props) {
   const {
-    id,
-    title,
-    description,
     price,
     discountedPrice,
-    imageUrl,
-    rating,
-    tags,
-    reviews,
   } = props.data;
 
   const discount = (price - discountedPrice).toFixed(2);

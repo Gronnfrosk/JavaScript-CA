@@ -27,7 +27,7 @@ export function useGetProductApi(url) {
     }
 
     getData();
-  }, []);
+  }, [url]);
 
   return [data, isLoading, isError];
 }
