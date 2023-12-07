@@ -1,5 +1,5 @@
 # An eCom store build with Javascript framework React
-![image](https://github.com/Gronnfrosk/JavaScript-CA/assets/91615712/5d587513-19b0-4a96-8865-9199f5860c9c)
+![image](https://github.com/Gronnfrosk/JavaScript-CA/assets/91615712/68fd6071-6ff0-4456-9508-a441f7969965)
 
 - Goal of this project: To apply knowledge of React to build an eCom store.
 
